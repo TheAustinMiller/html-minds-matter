@@ -1,112 +1,160 @@
-// Basic interactivity: floating nav show on scroll, reveal animations, audio/play reset using speechSynthesis, wave animation toggle
+// Mobile Navigation Toggle
+const hamburger = document.querySelector('.hamburger');
+const primaryNav = document.querySelector('.primary-nav');
 
-// small utils
-const $ = (sel, el = document) => el.querySelector(sel);
-const $$ = (sel, el = document) => Array.from(el.querySelectorAll(sel));
+hamburger.addEventListener('click', () => {
+    primaryNav.classList.toggle('active');
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Year
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Floating nav show after scrolling a bit
-  const floatNav = document.querySelector('.floating-nav');
-  let floated = false;
-  window.addEventListener('scroll', () => {
-    if (!floated && window.scrollY > 240) {
-      floatNav.classList.add('show');
-      floated = true;
-    } else if (floated && window.scrollY < 140) {
-      floatNav.classList.remove('show');
-      floated = false;
+    // Animate hamburger
+    const spans = hamburger.querySelectorAll('span');
+    if (primaryNav.classList.contains('active')) {
+        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
     }
-  });
-
-  // IntersectionObserver for reveal elements
-  const reveals = $$('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-      }
-    });
-  }, {threshold: 0.12});
-  reveals.forEach(r => io.observe(r));
-
-  // Wave / audio using SpeechSynthesis for a small guided reset
-  const wave = document.getElementById('wave');
-  const playBtn = document.getElementById('play-reset');
-  const audioPlayBtn = document.getElementById('audio-play');
-
-  function startWave(){
-    wave.classList.add('playing');
-  }
-  function stopWave(){
-    wave.classList.remove('playing');
-  }
-
-  // Guided text
-  const guidedText = `Find a comfortable position. Close your eyes if that feels safe.
-  Inhale gently for four counts. Hold for two. Exhale slowly for six.
-  Repeat two more times. When you're ready, open your eyes and notice one small change in your mind.`;
-
-  function playGuided(){
-    if (!('speechSynthesis' in window)) {
-      alert('Speech synthesis is not supported in this browser. Try Chrome, Edge, or Safari.');
-      return;
-    }
-
-    // Cancel any existing
-    window.speechSynthesis.cancel();
-
-    const utter = new SpeechSynthesisUtterance(guidedText);
-    utter.rate = 0.95;
-    utter.pitch = 1.0;
-    utter.lang = 'en-US';
-
-    utter.onstart = startWave;
-    utter.onend = stopWave;
-    utter.onerror = stopWave;
-
-    window.speechSynthesis.speak(utter);
-  }
-
-  playBtn.addEventListener('click', playGuided);
-  audioPlayBtn.addEventListener('click', playGuided);
-
-  // Smooth link behavior for anchor links
-  $$('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const href = a.getAttribute('href');
-      if (href.length > 1) {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) target.scrollIntoView({behavior:'smooth',block:'center'});
-      }
-    });
-  });
-
-  // tiny accessible enhancement: allow space/enter activation on pill buttons
-  $$('.pill-btn').forEach(btn => {
-    btn.addEventListener('keydown', ev => {
-      if (ev.key === 'Enter' || ev.key === ' ') {
-        btn.click();
-      }
-    });
-  });
-
-  // Small touch: subtle parallax effect for hero ripple based on pointer
-  const hero = document.querySelector('.hero');
-  const ripple = document.querySelector('.hero-ripple');
-  if (hero && ripple && window.matchMedia('(pointer:fine)').matches) {
-    hero.addEventListener('pointermove', (e) => {
-      const rect = hero.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = (e.clientY - rect.top) / rect.height;
-      // translate ripple slightly
-      ripple.style.transform = `translate3d(${(x-0.5)*30}px, ${(y-0.5)*18}px, 0)`;
-    });
-    hero.addEventListener('pointerleave', () => {
-      ripple.style.transform = '';
-    });
-  }
 });
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        primaryNav.classList.remove('active');
+        const spans = hamburger.querySelectorAll('span');
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+    });
+});
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Smooth reveal on scroll for cards
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '0';
+            entry.target.style.transform = 'translateY(30px)';
+
+            setTimeout(() => {
+                entry.target.style.transition = 'all 0.6s ease';
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }, 100);
+
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Observe cards
+document.querySelectorAll('.what-card').forEach(card => {
+    observer.observe(card);
+});
+
+// Observe about section elements
+if (document.querySelector('.about-content')) {
+    observer.observe(document.querySelector('.about-content'));
+}
+
+// Form submission
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const message = document.getElementById('message').value;
+
+        // Here you would typically send the form data to a server
+        console.log('Form submitted:', { name, email, phone, message });
+
+        // Show success message
+        const button = contactForm.querySelector('.submit-button');
+        const originalText = button.textContent;
+        button.textContent = 'Message Sent!';
+        button.style.background = '#7fa876';
+
+        // Reset form
+        contactForm.reset();
+
+        // Reset button after 3 seconds
+        setTimeout(() => {
+            button.textContent = originalText;
+            button.style.background = '';
+        }, 3000);
+    });
+}
+
+// Breathing circle instruction text
+const breathingText = document.querySelector('.breathing-text');
+if (breathingText) {
+    let breathPhase = 'in';
+
+    setInterval(() => {
+        if (breathPhase === 'in') {
+            breathingText.textContent = 'Inhale';
+            breathPhase = 'hold1';
+        } else if (breathPhase === 'hold1') {
+            breathingText.textContent = 'Hold';
+            breathPhase = 'out';
+        } else if (breathPhase === 'out') {
+            breathingText.textContent = 'Exhale';
+            breathPhase = 'hold2';
+        } else {
+            breathingText.textContent = 'Hold';
+            breathPhase = 'in';
+        }
+    }, 2000); // Changes every 2 seconds (8 second full cycle)
+}
+
+// Navbar shadow on scroll
+const siteHeader = document.querySelector('.site-header');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        siteHeader.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+    } else {
+        siteHeader.style.boxShadow = 'none';
+    }
+});
+
+// CTA Button scroll to contact
+const ctaButton = document.querySelector('.cta-button');
+if (ctaButton) {
+    ctaButton.addEventListener('click', () => {
+        document.getElementById('contact').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+}

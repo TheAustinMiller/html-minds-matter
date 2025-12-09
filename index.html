@@ -1,308 +1,204 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Breathe Into Clarity — Breathwork & Meditation</title>
-
-    <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minds Matter</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <!-- Header -->
     <header class="site-header">
         <div class="container header-inner">
             <div class="brand">
-                <svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-                    <rect width="64" height="64" rx="12" fill="#afb5a7" />
-                    <circle cx="32" cy="28" r="14" fill="#020403" opacity="0.08" />
-                    <path d="M18 42c6-5 20-5 26 0" stroke="#020403" stroke-width="3" stroke-linecap="round" fill="none"
-                        opacity="0.12" />
-                </svg>
+                <img src="assets/mindsMatterLogo.jpeg" height="100px" width="auto">
                 <div class="brand-text">
-                    <div class="name">Breathe Into Clarity</div>
+                    <div class="name">Minds Matter With Melissa</div>
                     <div class="tag">Mind-focused breathwork & meditation</div>
                 </div>
             </div>
-
-            <!-- FIXED: all links point to real existing sections -->
             <nav class="primary-nav" aria-label="Primary">
-                <a href="#what">What is it</a>
-                <a href="#sessions">Sessions</a>
-                <a href="#about">About</a>
-                <a href="#contact" class="cta">Book a Session</a>
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#what-is-it" class="nav-link">What is it</a>
+                <a href="#about" class="nav-link">About Me</a>
+                <a href="#contact" class="nav-link cta">Book a Session</a>
             </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
-    <main>
-
-        <!-- HERO -->
-        <section class="hero">
-            <div class="hero-ripple" aria-hidden="true"></div>
-            <div class="container hero-inner">
-                <div class="hero-text">
-                    <h1 class="hero-title">Breathe into clarity.</h1>
-                    <p class="hero-sub">Breathwork and meditation sessions designed to cultivate mental balance,
-                        emotional steadiness, and inner awareness.</p>
-
-                    <div class="hero-ctas">
-                        <a href="#contact" class="btn primary">Book a Session</a>
-                        <button class="btn subtle" id="play-reset">Listen: 1-minute Reset</button>
-                    </div>
-
-                    <div class="hero-meta">
-                        <span class="pill"><strong>In-person</strong> &amp; remote</span>
-                        <span class="pill">Evidence-informed • Trauma-aware</span>
-                    </div>
-                </div>
-
-                <div class="hero-visual" aria-hidden="true">
-                    <div class="breath-halo">
-                        <div class="halo core"></div>
-                        <div class="halo mid"></div>
-                        <div class="halo outer"></div>
-                    </div>
-                </div>
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="breathing-circle">
+                <div class="circle-outer"></div>
+                <div class="circle-middle"></div>
+                <div class="circle-inner"></div>
+                <div class="breathing-text">Breathe</div>
             </div>
-        </section>
-
-        <!-- FLOATING QUICK NAV -->
-        <div class="floating-nav" aria-hidden="true">
-            <a href="#contact" class="pill-btn">Book</a>
-            <a href="#about" class="pill-btn">About</a>
-            <a href="#what" class="pill-btn">What is it</a>
+            <h1 class="hero-title fade-in">Find Your Center.</h1>
+            <p class="hero-subtitle fade-in-delay">Guided breathwork and meditation sessions to calm your mind and
+                restore balance</p>
+            <button class="cta-button fade-in-delay-2">Begin Your Journey</button>
         </div>
+    </section>
 
-        <!-- THREE PILLARS -->
-        <section class="pillars container">
-            <div class="pillars-grid">
-                <article class="pillar card reveal">
-                    <div class="icon">🧠</div>
-                    <h3>Regulate the Mind</h3>
-                    <p>Tools to soothe reactivity, build steadiness, and improve attention.</p>
-                </article>
-
-                <article class="pillar card reveal">
-                    <div class="icon">🔕</div>
-                    <h3>Quiet Internal Noise</h3>
-                    <p>Breath-led practices to reduce rumination and anxious spirals.</p>
-                </article>
-
-                <article class="pillar card reveal">
-                    <div class="icon">🌱</div>
-                    <h3>Grow Inner Awareness</h3>
-                    <p>Integrative reflections and practices that deepen self-knowledge.</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- WHAT IS IT / EXPERIENCE -->
-        <!-- FIXED: this section now serves as the official #what anchor -->
-        <section id="what" class="experience container">
-            <div class="experience-inner">
-                <div class="experience-text reveal">
-                    <h2>What is it — Experience the work</h2>
-                    <p>Try a gentle guided reset to feel the tone of the sessions.</p>
-
-                    <div class="audio-card">
-                        <div class="audio-controls">
-                            <button id="audio-play" class="btn subtle">Play Reset</button>
-                            <div class="wave" id="wave">
-                                <span></span><span></span><span></span><span></span><span></span>
-                            </div>
-                        </div>
-                        <p class="muted">A short, voice-guided breath to center the mind. (Uses your browser's speech
-                            synthesis)</p>
-                    </div>
-                </div>
-
-                <div class="experience-illustration reveal" aria-hidden="true">
-                    <div class="soft-illustration">
-                        <svg width="240" height="240" viewBox="0 0 240 240" fill="none">
-                            <ellipse cx="120" cy="120" rx="90" ry="70" fill="#afb5a7" opacity="0.08" />
-                            <path d="M40 160C70 120 170 120 200 160" stroke="#a6a98a" stroke-width="6"
-                                stroke-linecap="round" opacity="0.12" />
+    <!-- What Is It Section -->
+    <section id="what-is-it" class="section what-section">
+        <div class="container">
+            <h2 class="section-title">What Is Breathwork?</h2>
+            <div class="what-grid">
+                <div class="what-card">
+                    <div class="card-icon">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                         </svg>
                     </div>
+                    <h3>Mental Clarity</h3>
+                    <p>Learn to quiet the mental chatter and find stillness within. Our breathwork techniques help you
+                        access deeper states of awareness and presence.</p>
+                </div>
+                <div class="what-card">
+                    <div class="card-icon">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 6v6l4 2" />
+                        </svg>
+                    </div>
+                    <h3>Stress Relief</h3>
+                    <p>Release tension and anxiety through conscious breathing patterns. Experience immediate calm and
+                        long-term resilience to life's challenges.</p>
+                </div>
+                <div class="what-card">
+                    <div class="card-icon">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg>
+                    </div>
+                    <h3>Emotional Balance</h3>
+                    <p>Connect with your inner self and process emotions in a safe, supportive environment. Build
+                        emotional intelligence through mindful practice.</p>
                 </div>
             </div>
-        </section>
-
-        <!-- SESSIONS -->
-        <section id="sessions" class="sessions container reveal">
-            <h2>Sessions & Programs</h2>
-            <div class="sessions-scroll">
-                <article class="session-card card">
-                    <div class="session-art"></div>
-                    <div class="session-body">
-                        <h3>One-on-One Session</h3>
-                        <p>Personalized breathwork and guided reflection for mental clarity and regulation.</p>
-                        <a class="link" href="#contact">Learn more</a>
-                    </div>
-                </article>
-
-                <article class="session-card card">
-                    <div class="session-art"></div>
-                    <div class="session-body">
-                        <h3>Group Breathwork</h3>
-                        <p>Shared, held space with guided breath: great for focus & release in community.</p>
-                        <a class="link" href="#contact">Join a class</a>
-                    </div>
-                </article>
-
-                <article class="session-card card">
-                    <div class="session-art"></div>
-                    <div class="session-body">
-                        <h3>Mind-Reset Workshop</h3>
-                        <p>Deep-dive 2-hour workshop focused on rewiring habitual mental responses.</p>
-                        <a class="link" href="#contact">View dates</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- TIMELINE -->
-        <section class="how container">
-            <h2 class="reveal">How a Session Works</h2>
-
-            <div class="timeline reveal">
-                <div class="step">
-                    <div class="dot"></div>
-                    <div class="step-content">
-                        <h4>Arrive</h4>
-                        <p>We set intentions, check in, and create safety in the space.</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="dot"></div>
-                    <div class="step-content">
-                        <h4>Settle</h4>
-                        <p>Gentle centering to calm the nervous system and prepare to breathe.</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="dot"></div>
-                    <div class="step-content">
-                        <h4>Breathe</h4>
-                        <p>Guided breathwork with subtle prompts and supportive pacing.</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="dot"></div>
-                    <div class="step-content">
-                        <h4>Integrate</h4>
-                        <p>Reflection and short practices to take the calm into daily life.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TESTIMONIALS -->
-        <section class="testimonials container reveal">
-            <h2>What people say</h2>
-            <div class="testimonials-grid">
-                <blockquote class="testimonial card">
-                    <p>"I finally understand how my mind responds to stress. The practices are so practical."</p>
-                    <cite>— A. M.</cite>
-                </blockquote>
-
-                <blockquote class="testimonial card">
-                    <p>"Soft, steady, and life-changing — a space I look forward to each week."</p>
-                    <cite>— R. P.</cite>
-                </blockquote>
-            </div>
-        </section>
-
-        <!-- ABOUT -->
-        <section id="about" class="about container reveal">
-            <h2>About the Guide</h2>
-
-            <div class="about-grid">
-                <div class="portrait">
-                    <svg width="220" height="220" viewBox="0 0 220 220">
-                        <rect width="220" height="220" rx="14" fill="#fafaf8" />
-                        <circle cx="110" cy="80" r="38" fill="#afb5a7" opacity="0.14" />
-                        <rect x="36" y="130" width="148" height="60" rx="8" fill="#a6a98a" opacity="0.08" />
-                    </svg>
-                </div>
-
-                <div class="about-text">
-                    <h3>Hi — I'm the guide</h3>
-                    <p>Trained in breathwork and contemplative practices, my approach centers the mind: practical
-                        inquiry, nervous-system regulation, and compassionate curiosity.</p>
-                    <p class="muted">Certifications • Trauma-informed training • Evidence-aware methods</p>
-                    <a href="#contact" class="btn primary">Book a Session</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact" class="contact container reveal">
-            <h2>Contact</h2>
-
-            <div class="contact-grid">
-                <form class="contact-form card" action="#"
-                    onsubmit="event.preventDefault(); alert('Thanks — we will be in touch!');">
-                    <label>
-                        <span>Name</span>
-                        <input type="text" name="name" required />
-                    </label>
-
-                    <label>
-                        <span>Email</span>
-                        <input type="email" name="email" required />
-                    </label>
-
-                    <label>
-                        <span>Message</span>
-                        <textarea name="message" rows="4" required></textarea>
-                    </label>
-
-                    <div class="form-cta">
-                        <button class="btn primary" type="submit">Send</button>
-                        <p class="muted small">I typically respond within 24–48 hours. If you're in crisis, please
-                            contact local emergency services.</p>
-                    </div>
-                </form>
-
-                <div class="contact-info">
-                    <h3>Studio & Contact</h3>
-                    <p class="muted">Remote sessions worldwide • In-person by appointment</p>
-                    <p>Email: <a href="mailto:hello@example.com">hello@example.com</a></p>
-                    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <div class="foot-left">
-                <small>© <span id="year"></span> Breathe Into Clarity</small>
-            </div>
-
-            <div class="foot-right">
-                <nav class="footer-nav">
-                    <a href="#what">What is it</a>
-                    <a href="#sessions">Sessions</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </nav>
+            <div class="what-description">
+                <p>Breathwork is an active meditation technique that uses conscious breathing patterns to influence your
+                    mental, emotional, and physical state. Through guided sessions, you'll learn to harness the power of
+                    your breath to reduce stress, increase energy, and access deeper levels of consciousness.</p>
+                <p>Each session is tailored to your unique needs, whether you're seeking relaxation, emotional release,
+                    or enhanced focus and clarity.</p>
             </div>
         </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <div class="placeholder-text">Your Photo</div>
+                    </div>
+                    <div class="accent-shape"></div>
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="about-intro">Welcome, I'm [Your Name], a certified breathwork facilitator and meditation
+                        guide dedicated to helping others discover the transformative power of conscious breathing.</p>
+                    <p>My journey into breathwork began [number] years ago when I was searching for tools to manage
+                        stress and anxiety. Through consistent practice, I experienced profound shifts in my mental
+                        clarity, emotional resilience, and overall wellbeing.</p>
+                    <p>Today, I combine ancient breathing techniques with modern understanding of neuroscience to create
+                        sessions that are both grounding and transformative. My approach is gentle, trauma-informed, and
+                        adaptable to each individual's needs.</p>
+                    <div class="credentials">
+                        <h4>Certifications & Training</h4>
+                        <ul>
+                            <li>Certified Breathwork Facilitator - [Organization]</li>
+                            <li>Mindfulness Meditation Teacher - [Organization]</li>
+                            <li>[Additional relevant certification]</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-intro">Ready to begin your breathwork journey? Reach out to schedule a session or ask any
+                questions.</p>
+            <div class="contact-content">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder=" " required>
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder=" ">
+                        <label for="phone">Phone (optional)</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder=" " required></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h4>Email</h4>
+                        <p>hello@mindfulbreath.com</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Phone</h4>
+                        <p>(555) 123-4567</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Location</h4>
+                        <p>Virtual & In-Person Sessions<br>Available Worldwide</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="#020403" />
+                                <circle cx="17.5" cy="6.5" r="1.5" fill="#020403" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Mindful Breath. All rights reserved.</p>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
