@@ -120,23 +120,17 @@ if (contactForm) {
 // Breathing circle instruction text
 const breathingText = document.querySelector('.breathing-text');
 if (breathingText) {
-    let breathPhase = 'in';
+    const phases = ['Inhale', 'Hold', 'Exhale', 'Hold'];
+    let phaseIndex = 0;
 
     setInterval(() => {
-        if (breathPhase === 'in') {
-            breathingText.textContent = 'Inhale';
-            breathPhase = 'hold1';
-        } else if (breathPhase === 'hold1') {
-            breathingText.textContent = 'Hold';
-            breathPhase = 'out';
-        } else if (breathPhase === 'out') {
-            breathingText.textContent = 'Exhale';
-            breathPhase = 'hold2';
-        } else {
-            breathingText.textContent = 'Hold';
-            breathPhase = 'in';
-        }
-    }, 2000); // Changes every 2 seconds (8 second full cycle)
+        breathingText.textContent = phases[phaseIndex];
+
+        phaseIndex = (phaseIndex + 1) % phases.length;
+    }, 4000);
+    
+    breathingText.textContent = phases[phaseIndex]; 
+    phaseIndex = (phaseIndex + 1) % phases.length;
 }
 
 // Navbar shadow on scroll
