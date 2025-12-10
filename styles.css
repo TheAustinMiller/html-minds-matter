@@ -518,22 +518,14 @@ body {
     position: relative;
 }
 
-.image-placeholder {
+.client-photo {
     width: 100%;
     aspect-ratio: 3/4;
-    background: linear-gradient(135deg, var(--sage), var(--olive));
+    object-fit: cover;
     border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     position: relative;
     z-index: 2;
-}
-
-.placeholder-text {
-    font-size: 1.5rem;
-    color: var(--soft-white);
-    font-weight: 300;
 }
 
 .accent-shape {
@@ -747,9 +739,34 @@ body {
 .footer {
     background: var(--dark);
     color: var(--light-sage);
-    text-align: center;
-    padding: 2rem;
+    padding: 2rem 0;
     font-size: 0.9rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.footer a {
+    color: rgb(80, 80, 255);
+}
+
+.footer-text {
+    text-align: right; 
+}
+
+.copyright {
+    margin-bottom: 0.25rem;
+    margin-top: 0;
+}
+
+.credit {
+    margin-top: 0;
 }
 
 /* Responsive */
