@@ -152,3 +152,26 @@ if (ctaButton) {
         });
     });
 }
+
+// Story Toggle
+const storyBtn = document.getElementById("showStoryBtn");
+const journeyWrapper = document.getElementById("journeyWrapper");
+const journeyItems = document.querySelectorAll(".journey-item");
+
+storyBtn.addEventListener("click", () => {
+    const expanding = !journeyWrapper.classList.contains("expanded");
+
+    journeyWrapper.classList.toggle("expanded");
+
+    storyBtn.textContent = expanding ? "Hide Story" : "See My Story";
+
+    if (expanding) {
+        journeyItems.forEach((item, i) => {
+            setTimeout(() => {
+                item.classList.add("visible");
+            }, 200 + i * 150);
+        });
+    } else {
+        journeyItems.forEach(item => item.classList.remove("visible"));
+    }
+});
