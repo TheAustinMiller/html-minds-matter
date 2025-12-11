@@ -290,7 +290,30 @@ body {
     color: var(--dark);
     font-weight: 300;
     z-index: 5;
-    animation: breathe-text 16s steps(4) infinite;
+    animation: breathe-text 16s step-end infinite;
+}
+
+.breathing-text::before {
+    content: 'Inhale';
+    animation: breathe-text 16s step-end infinite;
+}
+
+@keyframes breathe-text {
+    0% {
+        content: 'Inhale';
+    }
+    25% {
+        content: 'Hold';
+    }
+    50% {
+        content: 'Exhale';
+    }
+    75% {
+        content: 'Hold';
+    }
+    100% {
+        content: 'Inhale';
+    }
 }
 
 @keyframes breathe-inner {
