@@ -598,6 +598,8 @@ body {
     left: 0;
     color: var(--olive);
     font-size: 1.5rem;
+    top: 0; 
+    line-height: -1;
 }
 
 /* Journey section */
