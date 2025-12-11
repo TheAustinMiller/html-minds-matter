@@ -112,7 +112,7 @@ body {
     background: var(--olive);
     transform-origin: left center;
     transform: scaleX(0);
-    transition: transform 280ms cubic-bezier(.2,.9,.3,1);
+    transition: transform 280ms cubic-bezier(.2, .9, .3, 1);
     will-change: transform;
     pointer-events: none;
 }
@@ -248,6 +248,72 @@ body {
     padding: 2rem;
 }
 
+.hero-title {
+  position: relative;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  white-space: nowrap;
+}
+
+.hero-sentence {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+  transition: width 0.8s cubic-bezier(.2,.9,.2,1);
+  overflow: visible;
+}
+
+.hero-static,
+.hero-dynamic-wrapper,
+.hero-dynamic-word {
+  line-height: 1em;
+  vertical-align: baseline;
+}
+
+.hero-static {
+  display: inline-block;
+  margin-right: 0.6rem;
+  transition: transform 0.8s cubic-bezier(.2,.9,.2,1);
+}
+
+.hero-dynamic-wrapper {
+  display: inline-flex;
+  align-items: baseline;
+  position: relative;
+  height: 1em;
+  transition: width 0.8s cubic-bezier(.2,.9,.2,1);
+  overflow: visible;
+}
+
+.hero-dynamic-word {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+
+.hero-dynamic-word.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.hero-dynamic-word.exit {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
 /* Breathing Circle */
 .breathing-circle {
     position: relative;
@@ -311,15 +377,19 @@ body {
     0% {
         content: 'Inhale';
     }
+
     25% {
         content: 'Hold';
     }
+
     50% {
         content: 'Exhale';
     }
+
     75% {
         content: 'Hold';
     }
+
     100% {
         content: 'Inhale';
     }
@@ -630,7 +700,7 @@ body {
     left: 0;
     color: var(--olive);
     font-size: 1.5rem;
-    top: 0; 
+    top: 0;
     line-height: -1;
 }
 
@@ -645,7 +715,7 @@ body {
 
 .journey-timeline {
     margin-top: 40px;
-    border-left: 3px solid rgba(255,255,255,0.3);
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
     padding-left: 30px;
 }
 
@@ -663,7 +733,7 @@ body {
     position: absolute;
     left: -40px;
     top: 5px;
-    box-shadow: 0 0 15px rgba(255,255,255,0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
 .story-button {
@@ -845,7 +915,7 @@ body {
 .footer-logo {
     width: 100px;
     height: auto;
-    filter: drop-shadow(0 0 8px rgba(0,0,0,0.4));
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
 }
 
 .footer-text-block {
@@ -1002,7 +1072,7 @@ body {
 
 /* Journey timeline */
 .journey-timeline {
-    border-left: 3px solid rgba(0,0,0,0.15);
+    border-left: 3px solid rgba(0, 0, 0, 0.15);
     padding-left: 30px;
     margin-top: 2rem;
 }
@@ -1029,7 +1099,7 @@ body {
     position: absolute;
     left: -40px;
     top: 6px;
-    box-shadow: 0 0 15px rgba(166,169,138,0.5);
+    box-shadow: 0 0 15px rgba(166, 169, 138, 0.5);
 }
 
 .story-button {
@@ -1048,7 +1118,7 @@ body {
 .story-button:hover {
     background: var(--sage);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(166,169,138,0.3);
+    box-shadow: 0 8px 20px rgba(166, 169, 138, 0.3);
 }
 
 /* --- Parallax Cloud Layers --- */
@@ -1085,26 +1155,81 @@ body {
     bottom: 10%;
 }
 
-.hero { position: relative; overflow: hidden; }
-.hero-content { position: relative; z-index: 10; }
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+}
 
 @media (max-width: 1024px) {
-    .cloud-top-left { width: 250px; left: 40px; top: 12%; }
-    .cloud-center-left { left: -600px; width: 1500px; }
-    .cloud-top-right { right: -900px; width: 1500px; }
-    .cloud-bottom-right { right: -1100px; width: 1600px; }
+    .cloud-top-left {
+        width: 250px;
+        left: 40px;
+        top: 12%;
+    }
+
+    .cloud-center-left {
+        left: -600px;
+        width: 1500px;
+    }
+
+    .cloud-top-right {
+        right: -900px;
+        width: 1500px;
+    }
+
+    .cloud-bottom-right {
+        right: -1100px;
+        width: 1600px;
+    }
 }
 
 @media (max-width: 768px) {
-    .cloud-top-left { width: 200px; left: 30px; top: 10%; }
-    .cloud-center-left { left: -500px; width: 1200px; }
-    .cloud-top-right { right: -700px; width: 1200px; }
-    .cloud-bottom-right { right: -900px; width: 1300px; }
+    .cloud-top-left {
+        width: 200px;
+        left: 30px;
+        top: 10%;
+    }
+
+    .cloud-center-left {
+        left: -500px;
+        width: 1200px;
+    }
+
+    .cloud-top-right {
+        right: -700px;
+        width: 1200px;
+    }
+
+    .cloud-bottom-right {
+        right: -900px;
+        width: 1300px;
+    }
 }
 
 @media (max-width: 480px) {
-    .cloud-top-left { width: 150px; left: 20px; top: 8%; }
-    .cloud-center-left { left: -400px; width: 900px; }
-    .cloud-top-right { right: -500px; width: 900px; }
-    .cloud-bottom-right { right: -650px; width: 1000px; }
+    .cloud-top-left {
+        width: 150px;
+        left: 20px;
+        top: 8%;
+    }
+
+    .cloud-center-left {
+        left: -400px;
+        width: 900px;
+    }
+
+    .cloud-top-right {
+        right: -500px;
+        width: 900px;
+    }
+
+    .cloud-bottom-right {
+        right: -650px;
+        width: 1000px;
+    }
 }
