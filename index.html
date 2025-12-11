@@ -124,7 +124,8 @@
                     <p class="about-intro">Welcome, I'm Melissa Baxter Frederick, a certified mindfulness, meditation,
                         and breathwork practitioner and the founder of Minds Matter with Melissa. My work is based in
                         evidence-based practices, positive psychology, and lived experience.</p>
-                    <p>My journey into breathwork and meditation began five years ago when I was searching for tools to manage
+                    <p>My journey into breathwork and meditation began five years ago when I was searching for tools to
+                        manage
                         stress and anxiety. Through consistent practice, I experienced profound shifts in my mental
                         clarity, emotional resilience, and overall wellbeing.</p>
                     <p>My mission is to help you create a deeper awareness within yourself, the kind that reveals just
@@ -202,23 +203,32 @@
             <p class="contact-intro">Ready to begin your breathwork journey? Reach out to schedule a session or ask any
                 questions.</p>
             <div class="contact-content">
-                <form class="contact-form">
+                <form action="YOUR_FORM_ID" method="POST" class="contact-form">
                     <div class="form-group">
-                        <input type="text" id="name" placeholder=" " required>
+                        <input type="text" id="name" name="name" placeholder=" " required>
                         <label for="name">Name</label>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" placeholder=" " required>
+                        <input type="email" id="email" name="email" placeholder=" " required>
                         <label for="email">Email</label>
                     </div>
                     <div class="form-group">
-                        <input type="tel" id="phone" placeholder=" ">
+                        <input type="tel" id="phone" name="phone" placeholder=" ">
                         <label for="phone">Phone (optional)</label>
                     </div>
+
+                    <div style="display:none;" aria-hidden="true">
+                        <label>Don’t fill this out if you’re human:</label>
+                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <input type="hidden" name="_subject" value="New Contact Form Submission - Minds Matter">
+
                     <div class="form-group">
-                        <textarea id="message" rows="5" placeholder=" " required></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
                         <label for="message">Message</label>
                     </div>
+
                     <button type="submit" class="submit-button">Send Message</button>
                 </form>
                 <div class="contact-info">
