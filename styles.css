@@ -181,7 +181,7 @@ body {
     .primary-nav {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: var(--header-height, 70px);
         flex-direction: column;
         background: var(--soft-white);
         width: 100%;
