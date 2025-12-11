@@ -289,42 +289,6 @@ body {
     animation: breathe-inner 16s ease-in-out infinite;
 }
 
-.breathing-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    opacity: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.2rem;
-    color: var(--dark);
-    font-weight: 300;
-    z-index: 5;
-    animation: breathe-text 16s step-end infinite;
-}
-
-.breathing-text::before {
-    content: 'Inhale';
-    animation: breathe-text 16s step-end infinite;
-}
-
-@keyframes breathe-text {
-    0% {
-        content: 'Inhale';
-    }
-    25% {
-        content: 'Hold';
-    }
-    50% {
-        content: 'Exhale';
-    }
-    75% {
-        content: 'Hold';
-    }
-    100% {
-        content: 'Inhale';
-    }
-}
-
 @keyframes breathe-inner {
 
     0% {
