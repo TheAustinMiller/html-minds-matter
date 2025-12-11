@@ -1050,3 +1050,61 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(166,169,138,0.3);
 }
+
+/* --- Parallax Cloud Layers --- */
+.cloud {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.15;
+}
+
+.cloud-top-left {
+    width: 300px;
+    left: 50px;
+    top: 15%;
+    opacity: 0.15;
+}
+
+.cloud-center-left {
+    width: 2000px;
+    left: -600px;
+    top: 45%;
+    transform: translateY(-50%);
+    animation-duration: 25s;
+}
+
+.cloud-top-right {
+    width: 2000px;
+    right: -1200px;
+    top: 10%;
+}
+
+.cloud-bottom-right {
+    width: 2080px;
+    right: -1500px;
+    bottom: 10%;
+}
+
+.hero { position: relative; overflow: hidden; }
+.hero-content { position: relative; z-index: 10; }
+
+@media (max-width: 1024px) {
+    .cloud-top-left { width: 250px; left: 40px; top: 12%; }
+    .cloud-center-left { left: -600px; width: 1500px; }
+    .cloud-top-right { right: -900px; width: 1500px; }
+    .cloud-bottom-right { right: -1100px; width: 1600px; }
+}
+
+@media (max-width: 768px) {
+    .cloud-top-left { width: 200px; left: 30px; top: 10%; }
+    .cloud-center-left { left: -500px; width: 1200px; }
+    .cloud-top-right { right: -700px; width: 1200px; }
+    .cloud-bottom-right { right: -900px; width: 1300px; }
+}
+
+@media (max-width: 480px) {
+    .cloud-top-left { width: 150px; left: 20px; top: 8%; }
+    .cloud-center-left { left: -400px; width: 900px; }
+    .cloud-top-right { right: -500px; width: 900px; }
+    .cloud-bottom-right { right: -650px; width: 1000px; }
+}

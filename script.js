@@ -166,3 +166,25 @@ storyBtn.addEventListener("click", () => {
         journeyItems.forEach(item => item.classList.remove("visible"));
     }
 });
+
+/* Parallax clouds */
+document.addEventListener("scroll", () => {
+    const y = window.scrollY;
+
+    const clouds = [
+        { el: document.querySelector(".cloud-center-left"), speed: 0.38 },
+        { el: document.querySelector(".cloud-top-right"), speed: 0.42 },
+        { el: document.querySelector(".cloud-bottom-right"), speed: 0.5 },
+        { el: document.querySelector(".cloud-top-left"), speed: 0.45 }
+    ];
+
+    clouds.forEach(cloud => {
+        if (cloud.el) {
+            if(cloud.el.classList.contains('cloud-center-left')) {
+                cloud.el.style.transform = `translateY(${y * cloud.speed}px) translateY(-50%)`;
+            } else {
+                cloud.el.style.transform = `translateY(${y * cloud.speed}px)`;
+            }
+        }
+    });
+});
