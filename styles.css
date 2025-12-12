@@ -1074,3 +1074,82 @@ body {
     .cloud-top-right { right: -500px; width: 900px; }
     .cloud-bottom-right { right: -650px; width: 1000px; }
 }
+
+@media (max-width: 500px) {
+    .section {
+        padding: 3.5rem 0;
+    }
+
+    .about-content {
+        gap: 1.5rem;
+    }
+
+    .about-text p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    .client-photo {
+        border-radius: 15px;
+    }
+
+    .accent-shape {
+        top: 12px;
+        left: 12px;
+    }
+
+    .about-text .section-title {
+        font-size: 1.8rem;
+    }
+
+    .journey-wrapper {
+        padding: 0 1rem;
+    }
+
+    .journey-wrapper.expanded {
+        padding: 2rem 1rem;
+    }
+
+    .journey-item {
+        margin-bottom: 1.8rem;
+    }
+
+    .journey-timeline {
+        padding-left: 20px;
+    }
+
+    .journey-item::before {
+        left: -28px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .journey-item p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    .journey-section .section-title {
+        font-size: 2rem;
+    }
+
+    .breathing-circle {
+        width: 130px;
+        height: 130px;
+    }
+
+    .circle-outer {
+        width: 72%;
+        height: 72%;
+    }
+
+    .circle-middle {
+        width: 52%;
+        height: 52%;
+    }
+
+    .lotus {
+        width: 42%;
+        height: 42%;
+    }
+}
