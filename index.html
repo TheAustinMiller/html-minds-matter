@@ -65,7 +65,42 @@
             <div class="breathing-circle">
                 <div class="circle-outer"></div>
                 <div class="circle-middle"></div>
-                <div class="circle-inner"></div>
+                <svg class="lotus" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="lotusDark" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="var(--olive)" />
+                            <stop offset="100%" stop-color="var(--sage)" />
+                        </linearGradient>
+                    </defs>
+
+                    <g transform="translate(50,50)">
+                        <g fill="url(#lotusDark)" opacity="0.85">
+                            <ellipse cx="0" cy="-22" rx="7" ry="20" transform="rotate(0)" />
+                            <ellipse cx="0" cy="-22" rx="7" ry="20" transform="rotate(30)" />
+                            <ellipse cx="0" cy="-22" rx="7" ry="20" transform="rotate(60)" />
+                            <ellipse cx="0" cy="-22" rx="7" ry="20" transform="rotate(90)" />
+                            <ellipse cx="0" cy="-22" rx="7" ry="20" transform="rotate(120)" />
+                            <ellipse cx="0" cy="-22" rx="7" ry="20" transform="rotate(150)" />
+                            <ellipse cx="0" cy="-22" rx="7" ry="20" transform="rotate(180)" />
+                            <ellipse cx="0" cy="-22" rx="7" ry="20" transform="rotate(210)" />
+                            <ellipse cx="0" cy="-22" rx="7" ry="20" transform="rotate(240)" />
+                            <ellipse cx="0" cy="-22" rx="7" ry="20" transform="rotate(270)" />
+                            <ellipse cx="0" cy="-22" rx="7" ry="20" transform="rotate(300)" />
+                            <ellipse cx="0" cy="-22" rx="7" ry="20" transform="rotate(330)" />
+                        </g>
+
+                        <g fill="url(#lotusDark)" opacity="1">
+                            <ellipse cx="0" cy="-13" rx="5" ry="14" transform="rotate(15)" />
+                            <ellipse cx="0" cy="-13" rx="5" ry="14" transform="rotate(75)" />
+                            <ellipse cx="0" cy="-13" rx="5" ry="14" transform="rotate(135)" />
+                            <ellipse cx="0" cy="-13" rx="5" ry="14" transform="rotate(195)" />
+                            <ellipse cx="0" cy="-13" rx="5" ry="14" transform="rotate(255)" />
+                            <ellipse cx="0" cy="-13" rx="5" ry="14" transform="rotate(315)" />
+                        </g>
+
+                        <circle cx="0" cy="0" r="5" fill="rgba(0,0,0,0.1)" />
+                    </g>
+                </svg>
             </div>
             <h1 class="hero-title fade-in">Find your inner strength to create balance within.</h1>
             <p class="hero-subtitle fade-in-delay">
@@ -293,7 +328,8 @@
                                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
                             </svg>
                         </a>
-                        <a href="https://www.instagram.com/mindsmatter29/" target="_blank" class="social-icon" aria-label="Instagram">
+                        <a href="https://www.instagram.com/mindsmatter29/" target="_blank" class="social-icon"
+                            aria-label="Instagram">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 
                                 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 
