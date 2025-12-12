@@ -991,8 +991,8 @@ body {
     border-radius: 50%;
     background: var(--olive);
     position: absolute;
-    left: -40px;
-    top: 6px;
+    left: -39px;
+    top: 8px;
     box-shadow: 0 0 15px rgba(166,169,138,0.5);
 }
 
@@ -1019,14 +1019,14 @@ body {
 .cloud {
     position: absolute;
     pointer-events: none;
-    opacity: 0.15;
+    opacity: 0.25;
 }
 
 .cloud-top-left {
     width: 300px;
     left: 50px;
     top: 15%;
-    opacity: 0.15;
+    opacity: 0.25;
 }
 
 .cloud-center-left {
