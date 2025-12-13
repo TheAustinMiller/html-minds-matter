@@ -11,6 +11,7 @@
     --light-sage: #c9cec2;
     --cream: #f5f5f0;
     --soft-white: #fafaf8;
+    --header-height: 60px;
 }
 
 html {
@@ -23,6 +24,7 @@ body {
     color: var(--dark);
     background-color: var(--soft-white);
     overflow-x: hidden;
+    background: linear-gradient(to bottom, var(--soft-white) 0%, var(--soft-white) calc(100% - 200px), var(--dark) 200px);
 }
 
 .container {
