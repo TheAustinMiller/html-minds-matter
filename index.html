@@ -281,33 +281,32 @@
             <p class="contact-intro">Ready to begin your breathwork journey? Reach out to schedule a session or ask any
                 questions.</p>
             <div class="contact-content">
-                <form action="YOUR_FORM_ID" method="POST" class="contact-form">
+                <form action="https://formspree.io/f/xyzrobrb" method="POST" id="contact-form" class="contact-form">
+
                     <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder=" " required>
+                        <input type="text" id="name" name="name" placeholder="Name" required>
                         <label for="name">Name</label>
                     </div>
+
                     <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder=" " required>
+                        <input type="email" id="email" name="_replyto" placeholder="Email" required>
                         <label for="email">Email</label>
                     </div>
+
                     <div class="form-group">
-                        <input type="tel" id="phone" name="phone" placeholder=" ">
+                        <input type="tel" id="phone" name="phone" placeholder="Phone (optional)">
                         <label for="phone">Phone (optional)</label>
                     </div>
 
-                    <div style="display:none;" aria-hidden="true">
-                        <label>Don’t fill this out if you’re human:</label>
-                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
+                        <label for="message">Message</label>
                     </div>
 
                     <input type="hidden" name="_subject" value="New Contact Form Submission - Minds Matter">
 
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
-                        <label for="message">Message</label>
-                    </div>
-
                     <button type="submit" class="submit-button">Send Message</button>
+
                 </form>
                 <div class="contact-info">
                     <div class="info-item">
@@ -347,7 +346,8 @@
                             </svg>
                         </a>
 
-                        <a href="https://www.tiktok.com/@mindsmatter29" target="_blank" class="social-icon" aria-label="TikTok">
+                        <a href="https://www.tiktok.com/@mindsmatter29" target="_blank" class="social-icon"
+                            aria-label="TikTok">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path
                                     d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 

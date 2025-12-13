@@ -95,33 +95,39 @@ if (document.querySelector('.about-content')) {
 // Form submission
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-        // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const message = document.getElementById('message').value;
+    const formData = new FormData(contactForm);
+    const button = contactForm.querySelector('button[type="submit"]');
+    const originalText = button.textContent;
 
-        // Here you would typically send the form data to a server
-        console.log('Form submitted:', { name, email, phone, message });
+    button.textContent = 'Sending...';
+    button.disabled = true;
 
-        // Show success message
-        const button = contactForm.querySelector('.submit-button');
-        const originalText = button.textContent;
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
         button.textContent = 'Message Sent!';
-        button.style.background = '#7fa876';
-
-        // Reset form
         contactForm.reset();
+      } else {
+        button.textContent = 'Submission Failed';
+      }
+    } catch (error) {
+      button.textContent = 'Submission Failed';
+      console.error(error);
+    }
 
-        // Reset button after 3 seconds
-        setTimeout(() => {
-            button.textContent = originalText;
-            button.style.background = '';
-        }, 3000);
-    });
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.disabled = false;
+    }, 3000);
+  });
 }
 
 // Navbar shadow on scroll
