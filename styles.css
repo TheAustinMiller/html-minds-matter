@@ -16,6 +16,7 @@
 
 html {
     scroll-behavior: smooth;
+    background-color: var(--dark);
 }
 
 body {
@@ -24,7 +25,7 @@ body {
     color: var(--dark);
     background-color: var(--soft-white);
     overflow-x: hidden;
-    background: linear-gradient(to bottom, var(--soft-white) 0%, var(--soft-white) calc(100% - 200px), var(--dark) 200px);
+    overscroll-behavior-y: contain;
 }
 
 .container {
